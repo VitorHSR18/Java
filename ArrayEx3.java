@@ -18,7 +18,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        int l,c,min,max,i,j;
+        int l,c,min,max,i,j,cont=0,a,s,valor;
         Scanner leitor = new Scanner(System.in);
         System.out.println("Digite o tamanho , minimo e o maximo do vetor");
         l = leitor.nextInt();
@@ -29,15 +29,24 @@ public class Main {
 
         for(i=0;i<l;i++)
             for(j=0;j<c;j++)
-                {
-                    System.out.printf("%d \n",vet[i][j]);
-                }
+            {
+                System.out.printf("%d \n",vet[i][j]);
+            }
         for(i=0;i<l;i++)
             for(j=0;j<c;j++) {
+                valor = vet[i][j];
+                for (a=0;a<l;a++) {
+                    for (s = 0; s < c; s++) {
 
-                if(vet[i][j]<l*c)
+                        if (vet[a][s] == valor)
+                            cont++;
+                    }
+                }
+                if(cont<(l*c)/2)
                     System.out.println(false);
                 else System.out.println(true);
+
             }
+
     }
-    }
+}
